@@ -1,17 +1,17 @@
 * C:\Learning\simetrix\Simetrix_old\Work\mySims\RA_Cloop_in.sxsch
 V4 S1_CP 0  Pulse(0 1  20u 50n 50n)
 V5 p5 0 5V
-V6 V6_P 0 8 
+V6 V6_P 0 5 
 R8 p15 R8_N 2.2k
-R9 R8_N X3_inn 10k
 V1 p15 0 15 
-V2 0 n15 15 
+R9 R8_N X3_inn 10k
 X$VR1 VR1_Max R4_N R4_N PotVR1 : R=1k W=500m pinnames: Max Wiper Min 
 .subckt PotVR1 Max Wiper Min 
 B1 Max Wiper V=R*(1-W)*I(B1) 
 B2 Wiper Min V=R*W*I(B2) 
 .ends
-V3 V3_P 0 6 
+V2 0 n15 15 
+V3 V3_P 0 8 
 D8 R8_N D7_P D1N4148
 R12 0 R12_N 25k
 X1 R3_N R4_P p15 n15 R4_N TL072 pinnames: inp inn vsp vsn out
@@ -23,10 +23,10 @@ R11 R8_N X4_inn 10k
 X4 S2_P X4_inn p15 n15 D7_P <\Ti.lb>LM358 pinnames: inp inn vsp vsn out
 C1 C1_P X2_inn 25n
 X5 R12_N R15_P p15 n15 R15_N TL072 pinnames: inp inn vsp vsn out
-D1 X2_inn D1_N D1N4148
 R14 R12_N V6_P 25k
-D2 D1_N C1_P D1N4148
+D1 X2_inn D1_N D1N4148
 R15 R15_P R15_N 25k
+D2 D1_N C1_P D1N4148
 D3 R5_N D3_N D1N4148
 D4 D3_N X2_inn D1N4148
 D5 D5_P X3_inn D1N4148
@@ -39,7 +39,7 @@ R7 X2_inn VR1_Max 3.9k
 X$S2 S2_P 0 S1_CP 0 gen_switch : RON=5u ROFF=50Meg VON=0 VOFF=1 pinnames: P N CP CN
 R1 R4_P V3_P 25k
 R2 R3_N 0 25k
-R3 0 R3_N 25k
 X$S1 R5_N 0 S1_CP 0 gen_switch : RON=5u ROFF=50Meg VON=1 VOFF=0 pinnames: P N CP CN
+R3 0 R3_N 25k
 
 .tran 20m
